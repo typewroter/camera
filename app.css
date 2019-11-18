@@ -31,7 +31,7 @@ main {
   background: #333e5a;
 }
 
-.scan {
+/* .scan {
   width: 100%;
   max-width: 480px;
   height: 320px;
@@ -51,7 +51,7 @@ main {
     background-position: 0 100%, 0 0, 0 0, 0 0;
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
   }
-}
+} */
 
 video {
   width: 100%;

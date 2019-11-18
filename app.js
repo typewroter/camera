@@ -48,6 +48,7 @@ button.addEventListener('click', event => {
     .then(stream => {
       currentStream = stream;
       video.srcObject = stream;
+      video.play()
       CatchCode()
       return navigator.mediaDevices.enumerateDevices();
     })
