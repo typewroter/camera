@@ -10,7 +10,7 @@
 
 <body>
   <div class="scan">
-    <video id="video" style="float: left" width="480px" height="320px"></video>
+    <video id="video" autoplay style="float: left" width="480px" height="320px"></video>
     <canvas id="canvas" style="display:none;background-color:#F00;" width="480px" height="320px"></canvas>
     <!-- <button id="playButton">扫一扫</button> -->
   </div>
@@ -84,7 +84,9 @@
   }
 
   function jumpTo() {
-    setTimeout(window.open('http://scc.demo.jwis.cn'), 1e4)
+    setTimeout(function(){
+      location.href = 'http://scc.demo.jwis.cn'
+    }, 8e3)
   }
 
   function StringToBytes(str) {
