@@ -10,7 +10,7 @@
 
 <body>
   <div class="scan">
-    <video id="video" autoplay="autoplay" style="float: left" width="480px" height="320px"></video>
+    <video id="video" autoplay="autoplay"  style="float: left" width="480px" height="320px"></video>
     <canvas id="canvas" style="display:none;background-color:#F00;" width="480px" height="320px"></canvas>
   </div>
   <!-- <input type="file" id="newfile"> -->
@@ -55,7 +55,7 @@
   function CatchCode() {
     if (canvas != null) {
       context.drawImage(video, 0, 0, 480, 320);
-      img.src = canvas.toDataURL("image/png");
+      img.src = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574080289937&di=4131f22176163e474eab82bd96ea6a1a&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fda7e9c73a60bacca53befd3e621fc4a954db86c55294-R820MM_fw658"
       try {
         qrcode.decode(img.src);
         qrcode.callback = function (imgMsg) {
@@ -71,12 +71,15 @@
           console.log("二维码解析：" + hex_string);
           video.srcObject.getTracks()[0].stop();  //解析成功，关闭摄像头
           console.log("解析成功，关闭摄像头")
-          // $("#QRCode").html(hex_string);
         }
       } catch (m) {
         alert(m);
       }
     }
+  }
+
+  function jumpTo() {
+    setTime
   }
 
   function StringToBytes(str) {
