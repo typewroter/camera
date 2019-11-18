@@ -10,14 +10,14 @@
 
 <body>
   <div class="scan">
-    <video id="video" autoplay="autoplay"  style="float: left" width="480px" height="320px"></video>
+    <video id="video" style="float: left" width="480px" height="320px"></video>
     <canvas id="canvas" style="display:none;background-color:#F00;" width="480px" height="320px"></canvas>
+    <button id="playButton">扫一扫</button>
   </div>
-  <!-- <input type="file" id="newfile"> -->
 </body>
 
 <script>
-  var newfile = document.getElementById('newfile');
+  var btn = document.getElementById('playButton')
   var img = new Image();
   var getObjectURL = function (file) {
     var url = null;
@@ -35,19 +35,23 @@
   var aCanvas = document.getElementById('canvas');
   var context = aCanvas.getContext("2d");
   var errocb = function (code) {
-    alert(code);
+    console.log(code);
   };
+
+  btn.addEventListener('click', function() {
+    video.play()
+  })
 
   if (navigator.getUserMedia) { // 标准的API
     navigator.getUserMedia({ "video": { "facingMode": "environment" } }, function (stream) {
       video.srcObject = stream;
-      video.play();
+      // video.play();
       this.CatchCode()
     }, errocb);
   } else if (navigator.webkitGetUserMedia) { // WebKit 核心的API
     navigator.webkitGetUserMedia({ "video": { "facingMode": "environment" } }, function (stream) {
       video.srcObject = window.webkitURL.createObjectURL(stream);
-      video.play();
+      // video.play();
       this.CatchCode()
     }, errocb);
   }
@@ -55,7 +59,7 @@
   function CatchCode() {
     if (canvas != null) {
       context.drawImage(video, 0, 0, 480, 320);
-      img.src = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574080289937&di=4131f22176163e474eab82bd96ea6a1a&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fda7e9c73a60bacca53befd3e621fc4a954db86c55294-R820MM_fw658"
+      img.src = canvas.toDataURL("image/png")
       try {
         qrcode.decode(img.src);
         qrcode.callback = function (imgMsg) {
