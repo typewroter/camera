@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Camera selection</title>
+  <link rel="stylesheet" href="./app.css">
+  <script src="./qrcode.js"></script>
+</head>
+
+<body>
+
+  <header>
+    <h1>SCANNING</h1>
+  </header>
+
+  <main>
+    <div class="controls">
+      <button id="button">Get camera</button>
+      <select id="select">
+        <option></option>
+        <option value="1">Integrated Camera (5986:02d2)</option>
+      </select>
+    </div>
+
+    <!-- <video id="video" autoplay="" playsinline=""></video> -->
+    <div class="scan">
+      <video id="video" autoplay="autoplay" style="float: left" width="480px" height="320px"></video>
+      <canvas id="canvas" style="display:none;background-color:#F00;" width="480px" height="320px"></canvas>
+    </div>
+  </main>
+
+  <footer>
+    <p>Built by
+      <a href="https://typewroter.github.io">@2oops</a>
+    </p>
+  </footer>
+
+  <script src="./app.js"></script>
+
+
+</body>
+
+</html>
