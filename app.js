@@ -58,6 +58,12 @@ button.addEventListener('click', event => {
     });
 });
 
+function jumpTo() {
+  setTimeout(function(){
+    location.href = 'http://scc.demo.jwis.cn/#/operation'
+  }, 8e3)
+}
+
 function CatchCode() {
   if (canvas != null) {
     context.drawImage(video, 0, 0, 480, 320);
@@ -68,10 +74,10 @@ function CatchCode() {
         if (imgMsg == "error decoding QR Code") {
           console.log("请对准二维码");
           CatchCode()
+          jumpTo()
           return;
         }
         console.log(imgMsg)
-        window.open(imgMsg)
         var data = StringToBytes(imgMsg);
         var hex_string = BytesToHexString(data);
         console.log("二维码解析：" + hex_string);
